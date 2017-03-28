@@ -1,0 +1,91 @@
+#zadanie 1#
+
+zan1 = list(mean(iris$Sepal.Length), mean(iris$Sepal.Width), mean(iris$Petal.Length), mean(iris$Petal.Width))
+zan1 
+names(zan1) = c("Длина чашелистиков", "Ширина чашелистиков", "Длина лепестков", "Ширина лепестков")
+zan1
+
+#zadanie 2#
+
+z=iris 
+z$Species=NULL 
+z 
+z[1,1:4] 
+sum(z[1,1:4]) 
+sum(z[1,1:4])/4 
+y=0 
+for(i in 1:150) 
+{x = sum(z[i,1:4])/4 
+y = c(x,y)} 
+y 
+
+#zadanie 3#
+
+DNA = c("A","C","G","T") 
+DNA = sample(DNA, size = 1000, replace = T); DNA 
+DNA = factor(DNA) 
+DNA 
+summary(DNA) 
+length(DNA) 
+dna_at = c(summary(DNA)) 
+dna_at = dna_at[c("A","T")] 
+dna_at 
+y = dna_at/1000 
+y 
+dna_at = c(dna_at, y) 
+dna_at 
+
+#zadanie 4#
+
+LETTERS
+abc = sample(LETTERS, 10000, T)
+v=0
+for(i in 1:length(abc))
+{if(abc[i]=="A"|abc[i]=="E"|abc[i]=="I"|abc[i]=="O"|abc[i]=="U"|abc[i]=="Y")
+{v=v+1} else {v=v+0}}
+v
+
+#zadanie 5#
+
+iris 
+x = iris 
+x$Sepal.Length = NULL 
+x$Sepal.Width = NULL 
+x$Petal.Width = NULL 
+x 
+x[1:50,1] 
+mean(x[1:50,1]) 
+setosa = mean(x[1:50,1]) 
+versicolor = mean(x[51:100,1]) 
+versicolor 
+virginica = mean(x[101:150,1]) 
+virginica 
+spec = c(setosa, versicolor, virginica) 
+spec 
+names(spec) = c("setosa","versicolor","virginica") 
+spec 
+sort(spec) 
+
+#zadanie 6#
+
+x = c(21, 34, -1, -10, 0, 38, 19, 2)
+median(x)
+x = c(21, 34, -1, -10, 0, 38, 19, 2)
+x = sort(x)
+x
+x[(length(x)/2)]
+x[round(length(x)/2)]
+med = function(p)
+{sort(p)
+return(p[round(length(p)/2)])}
+x
+med(x)
+
+#zadanie 7#
+
+ggplot(iris, aes(x = Petal.Length, y = Sepal.Length, col=Species)) + geom_point(alpha = 0.4)
+
+#zadanie 8#
+
+diamonds
+tapply(diamonds$price[diamonds$price >1000], diamonds$clarity[diamonds$price >1000], mean)
